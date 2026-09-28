@@ -12,7 +12,7 @@ const FitLogs = async () => {
     const fitLogsData = await getFitLogs()
     // console.log(fitLogsData);
     return (
-        <div className=' container m-auto my-8'>
+        <div id="library" className=' container m-auto my-8 '>
             <div className='mb-8'>
                 <h4 className=' text-3xl font-bold text-white'>THE LIBRARY</h4>
                 <p className='my-1 text-sm text-[#9CA3AF]'>Twelve lifts covering every major muscle group.</p>

@@ -25,7 +25,7 @@ const DetailsPage = async ({
   const exercise = await getFitLogs(id);
 
   return (
-    <div className="min-h-screen bg-[#0D0E14] text-white px-4 md:px-8 py-8">
+    <div className="min-h-screen bg-black text-white px-4 md:px-8 py-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
 
         {/* exercise Image */}
