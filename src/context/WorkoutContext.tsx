@@ -9,7 +9,10 @@ const WorkoutProvider = ({ children }: { children: ReactNode }) => {
     const [addSave, setAddSave] = useState([])
     const [activeTab, setActiveTab] = useState('today-plan')
     const [sortBy, setSortBy] = useState("Duration");
+    const [doneExercises, setDoneExercises] = useState<string[]>([]);
     const sharedData = {
+        doneExercises,
+        setDoneExercises,
         active, setActive, todayPlan, setTodayPlan, addSave, setAddSave, activeTab, setActiveTab, sortBy, setSortBy
     }
     return <WorkoutContext.Provider value={sharedData}>{children}</WorkoutContext.Provider>
