@@ -1,20 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "../Components/Navbar.tsx";
 import Footer from "../Components/Footer.tsx";
 import WorkoutProvider from "../context/WorkoutContext.tsx";
 import { ToastContainer } from "react-toastify";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const oswald = Oswald({
   subsets: ["latin"],
+  variable: "--font-oswald",
 });
+
 
 export const metadata = {
   title: "Assignment-6",
@@ -26,9 +26,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="min-full flex flex-col bg-black">
+      <body className="min-full flex flex-col bg-black ">
         <WorkoutProvider>
 
           <Navbar></Navbar>

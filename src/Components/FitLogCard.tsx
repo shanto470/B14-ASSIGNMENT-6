@@ -39,7 +39,7 @@ export default function FitLogCard({ fitLog }: ExercisePropsTypes) {
                     </div>
 
                     <div>
-                        <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white uppercase leading-tight">
+                        <h3 className="text-xl  font-oswald sm:text-2xl font-black tracking-tight text-white uppercase leading-tight">
                             {fitLog.name}
                         </h3>
 

@@ -24,9 +24,9 @@ const DetailsPage = async ({
   const exercise = await getFitLogs(id);
 
   return (
-    <div className="min-h-screen bg-black text-white px-4 sm:px-6 md:px-8 py-6 sm:py-8">
+    <div className="container m-auto bg-black text-white px-4 sm:px-6 md:px-8 py-6 sm:py-8">
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-14">
+      <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-14">
 
         <div className="relative w-full h-[400px] sm:h-[550px] lg:h-[810px] overflow-hidden rounded-2xl border border-[#292B36]">
           <Image
@@ -42,7 +42,7 @@ const DetailsPage = async ({
         <div className="flex flex-col">
 
           <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
+            <h1 className="text-3xl  font-oswald sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
               {exercise.name}
             </h1>
 

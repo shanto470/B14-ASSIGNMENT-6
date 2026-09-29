@@ -83,10 +83,10 @@ export default function MyPlan() {
     return (
         <div className="min-h-screen bg-[#0D0E14] text-white px-4 sm:px-5 md:px-9 py-6 sm:py-8">
 
-            <div className="max-w-7xl mx-auto">
+            <div className="container mx-auto">
 
                 <div className="mb-6">
-                    <h1 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight">
+                    <h1 className="text-2xl  font-oswald sm:text-3xl font-extrabold uppercase tracking-tight">
                         My <span className="text-white">Plan</span>
                     </h1>
 
@@ -104,7 +104,7 @@ export default function MyPlan() {
                                 Exercises
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#C2F800]">
+                            <h2 className="text-3xl sm:text-4xl  font-oswald font-extrabold text-[#C2F800]">
                                 {todayPlan.length}
                             </h2>
                         </div>
@@ -114,7 +114,7 @@ export default function MyPlan() {
                                 Minutes
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold">
+                            <h2 className="text-3xl  font-oswald sm:text-4xl font-extrabold">
                                 {totalDuration}
                             </h2>
                         </div>
@@ -124,7 +124,7 @@ export default function MyPlan() {
                                 Calories
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold">
+                            <h2 className="text-3xl  font-oswald sm:text-4xl font-extrabold">
                                 {totalCalories}
                             </h2>
                         </div>
@@ -140,7 +140,7 @@ export default function MyPlan() {
                                 Exercises
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#C2F800]">
+                            <h2 className="text-3xl sm:text-4xl  font-oswald font-extrabold text-[#C2F800]">
                                 {addSave.length}
                             </h2>
                         </div>
@@ -150,7 +150,7 @@ export default function MyPlan() {
                                 Minutes
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold">
+                            <h2 className="text-3xl sm:text-4xl  font-oswald font-extrabold">
                                 {totalDuration1}
                             </h2>
                         </div>
@@ -160,7 +160,7 @@ export default function MyPlan() {
                                 Calories
                             </p>
 
-                            <h2 className="text-3xl sm:text-4xl font-extrabold">
+                            <h2 className="text-3xl  font-oswald sm:text-4xl font-extrabold">
                                 {totalCalories1}
                             </h2>
                         </div>
@@ -237,7 +237,7 @@ export default function MyPlan() {
                                     <div className="flex gap-3">
 
                                         <Image
-                                            className="rounded-xl w-20 h-28 sm:w-20 sm:h-36 object-cover"
+                                            className="rounded-xl  font-oswald w-20 h-28 sm:w-20 sm:h-36 object-cover"
                                             src={exercise.image}
                                             alt={exercise.name}
                                             height={144}
@@ -245,7 +245,7 @@ export default function MyPlan() {
                                         />
 
                                         <div>
-                                            <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white uppercase leading-tight">
+                                            <h3 className="text-lg sm:text-xl font-bold tracking-tight  font-oswald text-white uppercase leading-tight">
                                                 {exercise.name}
                                             </h3>
 
@@ -350,7 +350,7 @@ export default function MyPlan() {
                                         <div className="flex gap-3">
 
                                             <Image
-                                                className="rounded-xl w-20 h-28 sm:w-20 sm:h-36 object-cover"
+                                                className="rounded-xl  font-oswald w-20 h-28 sm:w-20 sm:h-36 object-cover"
                                                 src={exercise.image}
                                                 alt={exercise.name}
                                                 height={144}
@@ -359,7 +359,7 @@ export default function MyPlan() {
 
                                             <div>
 
-                                                <h3 className="text-lg sm:text-xl font-bold tracking-tight text-white uppercase leading-tight">
+                                                <h3 className="text-lg sm:text-xl  font-oswald font-bold tracking-tight text-white uppercase leading-tight">
                                                     {exercise.name}
                                                 </h3>
 

@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+body {
+  font-family: var(--font-inter);
+}
+
+.font-oswald {
+  font-family: var(--font-oswald);
+}

@@ -16,7 +16,7 @@ const FitLogs = async () => {
         <div id="library" className="container m-auto my-8 px-4 sm:px-6 lg:px-0">
 
             <div className="mb-8">
-                <h4 className="text-2xl sm:text-3xl font-bold text-white">
+                <h4 className="text-2xl  font-oswald sm:text-3xl font-bold text-white">
                     THE LIBRARY
                 </h4>
 
