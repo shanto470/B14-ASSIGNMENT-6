@@ -1,15 +1,23 @@
+import { notFound } from "next/navigation";
 import { ExerciseType } from "../../../type/Type";
 import Image from "next/image";
 import Todaybtn from "../../../button/Todaybtn";
 import SaveBtn from "../../../button/SaveBtn";
 
 const getFitLogs = async (id: string): Promise<ExerciseType> => {
-
   const res = await fetch(
     `https://api.abcz.workers.dev/api/fitlog/${id}`
   );
 
+  if (!res.ok) {
+    notFound();
+  }
+
   const data = await res.json();
+
+  if (!data || !data.id) {
+    notFound();
+  }
 
   return data;
 };
@@ -19,16 +27,17 @@ const DetailsPage = async ({
 }: {
   params: Promise<{ id: string }>;
 }) => {
-
   const { id } = await params;
+
   const exercise = await getFitLogs(id);
 
   return (
     <div className="container m-auto bg-black text-white px-4 sm:px-6 md:px-8 py-6 sm:py-8">
 
-      <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-14">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-14">
 
         <div className="relative w-full h-[400px] sm:h-[550px] lg:h-[810px] overflow-hidden rounded-2xl border border-[#292B36]">
+
           <Image
             src={exercise.image}
             alt={exercise.name}
@@ -37,12 +46,14 @@ const DetailsPage = async ({
             priority
             unoptimized
           />
+
         </div>
 
         <div className="flex flex-col">
 
           <div>
-            <h1 className="text-3xl  font-oswald sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
+
+            <h1 className="text-3xl font-oswald sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
               {exercise.name}
             </h1>
 
@@ -51,7 +62,8 @@ const DetailsPage = async ({
             </p>
 
             <div className="flex flex-wrap gap-2 sm:gap-3 mt-5">
-              {exercise.muscleGroups.map((muscle) => (
+
+              {exercise?.muscleGroups?.map((muscle) => (
                 <span
                   key={muscle}
                   className="bg-[#C2F800] text-black text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 rounded-full"
@@ -59,7 +71,9 @@ const DetailsPage = async ({
                   {muscle}
                 </span>
               ))}
+
             </div>
+
           </div>
 
           <div className="mt-6 sm:mt-8 border border-[#292B36] rounded-2xl overflow-hidden bg-[#15161F]">
@@ -78,6 +92,7 @@ const DetailsPage = async ({
                 key={label}
                 className="flex items-center justify-between gap-4 px-4 sm:px-5 md:px-7 py-3.5 sm:py-4 border-b border-[#252733] last:border-b-0"
               >
+
                 <span className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-gray-400">
                   {label}
                 </span>
@@ -85,6 +100,7 @@ const DetailsPage = async ({
                 <span className="text-sm sm:text-base text-gray-200 text-right">
                   {value}
                 </span>
+
               </div>
 
             ))}
@@ -99,7 +115,7 @@ const DetailsPage = async ({
 
             <ol className="space-y-3 sm:space-y-4">
 
-              {exercise.instructions.map((instruction, index) => (
+              {exercise?.instructions?.map((instruction, index) => (
 
                 <li
                   key={index}
@@ -110,6 +126,7 @@ const DetailsPage = async ({
                   </span>
 
                   <span>{instruction}</span>
+
                 </li>
 
               ))}
@@ -119,8 +136,11 @@ const DetailsPage = async ({
           </div>
 
           <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10">
+
             <Todaybtn exercise={exercise} />
+
             <SaveBtn exercise={exercise} />
+
           </div>
 
         </div>

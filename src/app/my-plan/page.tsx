@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Check, ChevronDown, Clock, Flame, Star, X } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SavedTab from "../../button/SavedTab";
 import TodayPlanTab from "../../button/TodayPlanTab";
 import { WorkoutContext } from "../../context/WorkoutContext";
@@ -14,7 +14,7 @@ export default function MyPlan() {
 
     const context = useContext(WorkoutContext);
     const router = useRouter();
-
+    const [doneExercises, setDoneExercises] = useState<string[]>([]);
     if (!context) return null;
 
     const {
@@ -287,9 +287,27 @@ export default function MyPlan() {
                                             </button>
 
                                             <button
-                                                className="flex gap-1 items-center justify-center px-3.5 sm:px-4.5 py-2.5 border border-none rounded-3xl text-xs sm:text-sm text-black bg-[#CCFF00]"
+                                                onClick={() => {
+                                                    const isDone = doneExercises.includes(exercise.id);
+
+                                                    setDoneExercises((prev) =>
+                                                        isDone
+                                                            ? prev.filter((id) => id !== exercise.id)
+                                                            : [...prev, exercise.id]
+                                                    );
+
+                                                    if (!isDone) {
+                                                        toast.success("Workout marked as done!");
+                                                    } else {
+                                                        toast.info("Workout marked as undone!");
+                                                    }
+                                                }}
+                                                className={`flex gap-1 items-center justify-center px-3.5 sm:px-4.5 py-2.5 rounded-3xl text-xs sm:text-sm transition ${doneExercises.includes(exercise.id)
+                                                        ? "bg-[#CCFF00] text-black border border-[#CCFF00]"
+                                                        : "bg-transparent text-white border border-[#374151]"
+                                                    }`}
                                             >
-                                                <Check className="text-black w-4 h-4" />
+                                                <Check className="w-4 h-4" />
                                                 Mark as Done
                                             </button>
 
