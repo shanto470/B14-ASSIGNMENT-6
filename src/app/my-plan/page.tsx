@@ -22,7 +22,9 @@ export default function MyPlan() {
         setTodayPlan,
         addSave,
         setAddSave,
-        activeTab
+        activeTab,
+        sortBy,
+        setSortBy
     } = context;
 
     const handleViewDetailsBtn = (id: string) => {
@@ -58,6 +60,25 @@ export default function MyPlan() {
         (total, exercise) => total + exercise.caloriesBurned,
         0
     );
+    // const currentPlan = activeTab === "today-plan" ? todayPlan : addSave;
+
+    const currentPlan = activeTab === "today-plan" ? todayPlan : addSave;
+
+    const sortedPlan = [...currentPlan].sort((a, b) => {
+        if (sortBy === "Duration") {
+            return a.duration - b.duration;
+        }
+
+        if (sortBy === "Calories") {
+            return a.caloriesBurned - b.caloriesBurned;
+        }
+
+        if (sortBy === "Rating") {
+            return a.rating - b.rating;
+        }
+
+        return 0;
+    });
 
     return (
         <div className="min-h-screen bg-[#0D0E14] text-white px-4 sm:px-5 md:px-9 py-6 sm:py-8">
@@ -162,7 +183,8 @@ export default function MyPlan() {
 
                         <div className="relative">
                             <select
-                                defaultValue="Duration"
+                                value={sortBy}
+                                onChange={(e) => setSortBy(e.target.value)}
                                 className="appearance-none bg-[#13141C] border border-[#262833] rounded-xl text-sm text-white pl-4 pr-10 py-2.5 outline-none cursor-pointer"
                             >
                                 <option value="Duration">Duration</option>
@@ -205,7 +227,7 @@ export default function MyPlan() {
                     ) : (
 
                         <div>
-                            {todayPlan.map((exercise) => (
+                            {sortedPlan.map((exercise) => (
 
                                 <div
                                     key={exercise.id}
@@ -317,8 +339,8 @@ export default function MyPlan() {
                         ) : (
 
                             <div>
-
-                                {addSave.map((exercise) => (
+                                {/* {addSave.map((exercise) => ( */}
+                                {sortedPlan.map((exercise) => (
 
                                     <div
                                         key={exercise.id}
